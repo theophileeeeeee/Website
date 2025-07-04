@@ -1,0 +1,164 @@
+:root {
+  --color-bg: #111;
+  --color-bg-navbar: #000;
+  --color-primary: rgb(25, 52, 141);
+  --color-secondary: #0cc2c2;
+  --color-text: #fff;
+  --color-footer: #999;
+  --color-card-bg: #1a1a1a;
+  --color-card-border: #333;
+  --color-skill-bg: #222;
+  --color-hover-shadow: #0ff;
+  --color-hover-skill: #ffd700;
+  --color-cursor: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  scroll-behavior: smooth;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-bg-navbar);
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 5px rgba(255,255,255,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+.logo {
+  font-size: 1.8rem;
+  color: var(--color-primary);
+}
+.logo span {
+  color: var(--color-secondary);
+}
+nav ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+nav ul li a:hover {
+  color: var(--color-primary);
+  text-shadow: 0 0 10px var(--color-primary);
+}
+.hero {
+  height: 100vh;
+  background: radial-gradient(circle at center, #222, var(--color-bg-navbar));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.home-hero h1 {
+  font-size: 4rem;
+  color: var(--color-primary);
+  text-shadow: 0 0 20px var(--color-primary);
+}
+.home-hero p {
+  font-size: 1.5rem;
+  color: var(--color-secondary);
+  margin-top: 1rem;
+}
+.projects-section {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  padding: 4rem 2rem;
+  flex-wrap: wrap;
+}
+.project-card {
+  background: var(--color-card-bg);
+  border: 2px solid var(--color-card-border);
+  padding: 2rem;
+  width: 300px;
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.project-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px var(--color-hover-shadow);
+}
+.skills {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+.skills h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+.skill {
+  width: 100px;
+  height: 100px;
+  background: var(--color-skill-bg);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.skill:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 20px var(--color-hover-skill);
+}
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--color-bg-navbar);
+  color: var(--color-footer);
+}
+.cursor-light {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  background: var(--color-cursor);
+  border-radius: 50%;
+  box-shadow: 0 0 30px 10px var(--color-cursor);
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: background 0.2s ease;
+}
+.project-link {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1.2rem;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.project-link:hover, .project-link:focus {
+  background: var(--color-secondary);
+  color: #111;
+  transform: translateY(-2px) scale(1.05);
+}
