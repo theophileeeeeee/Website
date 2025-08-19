@@ -1,0 +1,202 @@
+body {
+  background: linear-gradient(to right, #16d3da, #b6169b);
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: "Font1";
+  src: url("fonts/Super Dream.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Font2";
+  src: url("fonts/Super Greatly.ttf") format("truetype");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+nav.menu-nav {
+  padding-left: 12%;
+}
+
+nav.menu-nav ul li.btn {
+  list-style-type: none;
+  display: inline-block;
+  margin: 0 50px;
+}
+
+nav.menu-nav ul li.btn a {
+  font-family: "Font2", sans-serif;
+  color: #474646;
+  padding: 50px 70px;
+  font-size: 30px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+  border-radius: 12px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+nav.menu-nav ul li.btn a::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url("img/clouds.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: filter 0.3s ease;
+  z-index: -1;
+}
+
+nav.menu-nav ul li.btn a:hover::before {
+  filter: brightness(0.7);
+}
+
+.intro {
+  margin: 60px 0;
+  margin-left: 400px;
+  margin-right: 400px;
+  color: white;
+  text-align: center;
+  font-family: "Font2", sans-serif;
+  line-height: 1.8;
+  font-size: 20px;
+}
+
+.projectswindows {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 60px 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.project {
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  padding: 40px;
+  margin-bottom: 30px;
+  color: #fff;
+  font-family: "Font2", sans-serif;
+  font-size: 18px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.project:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+}
+
+.project-header {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.project-logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 20px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.project-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.project-info h2 {
+  font-size: 32px;
+  margin: 0 0 10px;
+  color: #fff;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.badge {
+  background-color: #222;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  color: #fff;
+}
+
+.install-btn {
+  background-color: #0aad98;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  padding: 12px 22px;
+  cursor: pointer;
+  font-family: "Font2", sans-serif;
+  margin-left: auto;
+  text-decoration : none;
+  transition: background 0.3s;
+}
+
+.install-btn:hover {
+  background-color: #05678d;
+}
+
+.project-description {
+  margin-top: 40px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #fff;
+  text-align: left;
+}
+
+/* Responsive pour mobile */
+@media (max-width: 768px) {
+  .project {
+    padding: 30px 20px;
+  }
+
+  .project-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .project-logo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .install-btn {
+    margin-top: 15px;
+    align-self: flex-start;
+  }
+}
+
+.footer {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-family: "Font2", sans-serif;
+  margin-top: 100px;
+}

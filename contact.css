@@ -1,0 +1,87 @@
+body {
+  background: linear-gradient(to right, #16d3da, #b6169b);
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: "Font1";
+  src: url("fonts/Super Dream.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Font2";
+  src: url("fonts/Super Greatly.ttf") format("truetype");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+nav.menu-nav {
+  padding-left: 12%;
+}
+
+nav.menu-nav ul li.btn {
+  list-style-type: none;
+  display: inline-block;
+  margin: 0 50px;
+}
+
+nav.menu-nav ul li.btn a {
+  font-family: "Font2", sans-serif;
+  color: #474646;
+  padding: 50px 70px;
+  font-size: 30px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+  border-radius: 12px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+nav.menu-nav ul li.btn a::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url("img/clouds.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: filter 0.3s ease;
+  z-index: -1;
+}
+
+nav.menu-nav ul li.btn a:hover::before {
+  filter: brightness(0.7);
+}
+div.intro{
+  margin: 60px 0;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-bottom: 30px;
+  color: white;
+  text-align: center;
+  font-family: "Font2", sans-serif;
+  line-height: 1.8;
+  font-size: 30px;
+}
+.footer {
+  background-color: rgba(0, 0, 0, 0.3); /* fond semi-transparent */
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-family: "Font2", sans-serif;
+ margin-top: 307px;
+}
+.social-logo {
+  background: none;
+  border-radius: 0;
+  object-fit: contain;
+  box-shadow: none;
+  margin: 0 15px;
+  margin-top: 20px;
+}

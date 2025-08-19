@@ -1,0 +1,98 @@
+body {
+  background: linear-gradient(to right, #16d3da, #b6169b);
+}
+nav.menu-nav {
+  padding-left: 12%;
+}
+
+nav.menu-nav ul li.btn {
+  list-style-type: none;
+  display: inline-block;
+  margin: 0 50px;
+}
+
+@font-face {
+  font-family: "Font1";
+  src: url("fonts/Super\ Dream.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Font2";
+  src: url("fonts/Super Greatly.ttf") format("truetype");
+}
+
+nav.menu-nav ul li.btn a {
+  font-family: "Font2", sans-serif;
+  color: #474646;
+  padding: 50px 70px;
+  font-size: 30px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+  border-radius: 12px;
+
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Image de fond dans ::before */
+nav.menu-nav ul li.btn a::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url("img/clouds.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: filter 0.3s ease;
+  z-index: -1;
+}
+
+/* Hover : foncer uniquement l’image de fond */
+nav.menu-nav ul li.btn a:hover::before {
+  filter: brightness(0.7);
+}
+
+.skill-icon {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px; /* espace entre les icônes */
+  margin: 50px auto;
+  max-width: 1000px; /* largeur max centrée */
+  padding: 0 20px; /* petite marge intérieure gauche/droite */
+}
+
+.skill-icon .icon-box {
+  flex: 0 0 calc(33.33% - 27px); /* 3 par ligne avec 40px de gap */
+  display: flex;
+  justify-content: center;
+}
+
+.skill-icon img {
+  background: none;
+  padding: 5%;
+  border-radius: 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  height: 200px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-icon img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+}
+
+
+.footer {
+  background-color: rgba(0, 0, 0, 0.3); /* fond semi-transparent */
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-family: "Font2", sans-serif;
+  margin-top: 100px;
+}
+
+
+

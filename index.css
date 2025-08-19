@@ -1,0 +1,158 @@
+body {
+  background: linear-gradient(to right, #16d3da, #b6169b);
+}
+
+h1.name {
+    font-family: Font1, sans-serif;
+  color: #fff;
+  text-align: center;
+  font-size: 120px;
+  margin-top: 20px;
+  padding-top: 5%;
+}
+h1.familyname {
+    font-family: Font1, sans-serif;
+  color: #fff;
+  text-align: center;
+  font-size: 120px;
+}
+nav.menu-nav {
+  padding-left: 12%;
+}
+
+nav.menu-nav ul li.btn {
+  list-style-type: none;
+  display: inline-block;
+  margin: 0 50px;
+}
+
+@font-face {
+  font-family: "Font1";
+  src: url("fonts/Super\ Dream.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Font2";
+  src: url("fonts/Super Greatly.ttf") format("truetype");
+}
+
+
+nav.menu-nav ul li.btn a {
+  font-family: "Font2", sans-serif;
+  color: #474646;
+  padding: 50px 70px;
+  font-size: 30px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+  border-radius: 12px;
+
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Image de fond dans ::before */
+nav.menu-nav ul li.btn a::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url("img/clouds.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: filter 0.3s ease;
+  z-index: -1;
+}
+
+/* Hover : foncer uniquement l’image de fond */
+nav.menu-nav ul li.btn a:hover::before {
+  filter: brightness(0.7);
+}
+
+
+
+.fenetres {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+  margin: 100px auto;
+  gap: 40px;
+  flex-wrap: wrap; /* Permet le responsive naturel */
+}
+
+.window {
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  padding: 40px;
+  min-height: 500px; /* 👈 nouvelle hauteur minimale */
+  width: 45%;
+  color: #fff;
+  font-family: "Font2", sans-serif;
+  font-size: 24px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+.window h1 {
+  font-size: 45px;
+  margin-bottom: 15px;
+  font-family: "Font1", sans-serif;
+}
+
+.window:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .fenetres {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .window {
+    width: 90%;
+  }
+}
+.title-with-windows {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 80px;
+  flex-wrap: wrap;
+  padding: 0 5%;
+}
+
+.title-with-windows .window {
+  width: 25%;
+  min-width: 250px;
+}
+
+.main-title {
+  align-items: flex-start;
+  flex: 1;
+}
+img.imgprojet_actuel {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+.footer {
+  background-color: rgba(0, 0, 0, 0.3); /* fond semi-transparent */
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-family: "Font2", sans-serif;
+  margin-top: 100px;
+}
+
+
