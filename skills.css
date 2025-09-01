@@ -36,7 +36,6 @@ nav.menu-nav ul li.btn a {
   overflow: hidden;
 }
 
-/* Image de fond dans ::before */
 nav.menu-nav ul li.btn a::before {
   content: "";
   position: absolute;
@@ -48,51 +47,48 @@ nav.menu-nav ul li.btn a::before {
   transition: filter 0.3s ease;
   z-index: -1;
 }
-
-/* Hover : foncer uniquement l’image de fond */
 nav.menu-nav ul li.btn a:hover::before {
   filter: brightness(0.7);
 }
-
 .skill-icon {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 40px; /* espace entre les icônes */
+  gap: 40px;
   margin: 50px auto;
-  max-width: 1000px; /* largeur max centrée */
-  padding: 0 20px; /* petite marge intérieure gauche/droite */
+  max-width: 1000px;
+  padding: 0 20px;
 }
 
-.skill-icon .icon-box {
-  flex: 0 0 calc(33.33% - 27px); /* 3 par ligne avec 40px de gap */
+.skill-icon a {
   display: flex;
   justify-content: center;
-}
-
-.skill-icon img {
-  background: none;
-  padding: 5%;
+  align-items: center;
+  width: 220px;
+  height: 220px;
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 40px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  height: 200px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.skill-icon img:hover {
-  transform: scale(1.1);
+.skill-icon a:hover {
+  transform: scale(1.05);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+}
+
+.skill-icon img {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
 }
 
 
 .footer {
-  background-color: rgba(0, 0, 0, 0.3); /* fond semi-transparent */
+  background-color: rgba(0, 0, 0, 0.3);
   color: white;
   text-align: center;
   padding: 20px;
   font-family: "Font2", sans-serif;
   margin-top: 100px;
 }
-
-
-
