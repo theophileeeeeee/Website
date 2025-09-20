@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Merci !</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #182542;
+      color:#ffffff;
+    }
+    .box {
+      text-align: center;
+      background: #111a2e;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #ffffff;
+    }
+.link1 {
+  position: relative;
+  color: #37f7fd;
+  text-decoration: none;
+}
+.link1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background: #37f7fd;
+  transition: 0.3s;
+}
+
+.link1:hover::after {
+  width: 100%;
+}
+
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>✅ Merci !</h1>
+    <p>Ton message a bien été envoyé.</p>
+    <a class="link1" href="index.html">⬅ Retour au site</a>
+  </div>
+</body>
+</html>

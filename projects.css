@@ -1,186 +1,554 @@
 body {
-  background: linear-gradient(to right, #16d3da, #b6169b);
-  margin: 0;
-  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.3s, color 0.3s;
+  font-family: 'FinFont', sans-serif;
+}
+/* thème sombre de base*/
+:root {
+  --bg-color: #182542;
+  --text-color: #ffffff;
+  --projett-color: #111a2e;
+  --link-color: #37f7fd;
+  --gradient-start: #c71e1e;
+  --gradient-end: #37f7fd;
+  --button-color: #11afb4;
+}
+/* thème clair */
+.light-theme {
+  --bg-color: #c8d0e6;
+  --text-color: #182542;
+  --projett-color: #a8c6ee;
+  --link-color: #11afb4;
+  --gradient-start: #08143b;
+  --gradient-end: #37f7fd;
+  --button-color: #11afb4;
+}
+#theme-toggle {
+  width: 60px;
+  height: 30px;
+  background: #314c85;
+  border-radius: 30px;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding: 0 5px;
+  transition: background 0.3s ease;
+}
+
+#theme-toggle .icon {
+  font-size: 18px;
+  transition: transform 0.4s ease;
+}
+.light-theme #theme-toggle {
+  justify-content: flex-end;
+  background: #e0dede;
+}
+
+.light-theme #theme-toggle .icon {
+  transform: rotate(360deg);
+}
+
+
+.dark-theme #theme-toggle .icon {
+  transform: rotate(360deg);
+}
+
+/* policessss */
+@font-face {
+  font-family: 'BasicFont';
+  src: url(fonts/BasicFont.ttf);
 }
 
 @font-face {
-  font-family: "Font1";
-  src: url("fonts/Super Dream.ttf") format("truetype");
+  font-family: 'FinFont';
+  src: url(fonts/Roboto-ExtraLight.ttf);
 }
 
-@font-face {
-  font-family: "Font2";
-  src: url("fonts/Super Greatly.ttf") format("truetype");
+
+/* header */
+.header-content {
+  text-align: center;
+}
+.header-content a {
+  text-decoration: none;
+  color: var(--text-color);
+  height: fit-content;
+}
+.titlebox {
+  display: flex;
+  font-size: 30px;
+  align-items: center;        /* centre verticalement */
+  justify-content: center;    /* centre horizontalement */
+  width: fit-content;         /* largeur juste suffisante pour le texte */
+  height: fit-content;        /* hauteur juste suffisante */
+  margin: 0 auto;             /* centre la boîte dans le parent */
+  position: relative;
 }
 
-* {
-  box-sizing: border-box;
+h1.title {
+  margin: 0;                  /* supprime les marges par défaut */
+  padding: 0;                 /* supprime padding */
+  line-height: 1.1;           /* compacte verticalement si multi-line */
 }
 
+
+
+
+img.logo1,
+img.logo2,
+img.logo3,
+img.logo4
+{
+  width: 50px;
+  height: 50px;
+  vertical-align: middle;
+  padding-bottom: 20px;
+}
+.logo1 {
+  content: url('img/logo_applications/github.png'); /* image par défaut sombre */
+  transition: 0.3s;
+}
+
+.light-theme .logo1 {
+  content: url('img/logo_applications/github\ light.png'); /* image claire */
+}
+
+.logo2 {
+  content: url('img/logo_applications/tiktok.png'); /* image par défaut sombre */
+  transition: 0.3s;
+}
+
+.light-theme .logo2 {
+  content: url('img/logo_applications/tiktok\ light.png'); /* image claire */
+}
+
+.logo3 {
+  content: url('img/logo_applications/instagram.png'); /* image par défaut sombre */
+  transition: 0.3s;
+}
+
+.light-theme .logo3 {
+  content: url('img/logo_applications/instagram\ light.png'); /* image claire */
+}
+
+.logo4 {
+  content: url('img/logo_applications/itchio.png'); /* image par défaut sombre */
+  transition: 0.3s;
+}
+
+.light-theme .logo4 {
+  content: url('img/logo_applications/itchio\ light.png'); /* image claire */
+}
+/* menu bangerrr */
 nav.menu-nav {
-  padding-left: 12%;
+  text-align: center;
+  margin: 20px;
 }
-
-nav.menu-nav ul li.btn {
+nav.menu-nav ul li.button,p.separation {
+  font-size: 30px;
   list-style-type: none;
   display: inline-block;
-  margin: 0 50px;
+  margin-left: 50px;
+}
+nav.menu-nav ul li.button a {
+  text-decoration: none;
+  color: var(--text-color);
 }
 
-nav.menu-nav ul li.btn a {
-  font-family: "Font2", sans-serif;
-  color: #474646;
-  padding: 50px 70px;
+.button {
   font-size: 30px;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  display: inline-block;
-  border-radius: 12px;
   position: relative;
-  z-index: 1;
+  display: inline-block;
+}
+
+.button::after,
+.button::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+  bottom: -5px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease-out;
+}
+
+.button::before {
+  top: -5px;
+  transform-origin: left;
+}
+
+.button:hover::after,
+.button:hover::before {
+  transform: scaleX(1);
+}
+/* liensss et texte accentué */
+.link {
+  position: relative;
+  color: var(--link-color);
+  text-decoration: none;
+}
+.accentuated {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background: var(--link-color);
+  transition: 0.3s;
+}
+
+.link:hover::after {
+  width: 100%;
+}
+
+
+
+/* introduction de projets */
+.intro {
+  margin-top: 30px;
+  background-color: var(--projett-color);
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+}
+.introtext {
+  text-align: center;
+  color: var(--text-color);
+  font-size: 25px;
+  margin: 50px;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+
+
+
+/* projets setingsssss */
+.project {
+  margin-top: 30px;
+  background-color: var(--projett-color);
+  width: 50%;
+  padding: 10px;
+  border-radius: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.project-logo {
+  width: 80px;
+  border-radius: 5px;
+}
+.platform-icon {
+  width: 15px;
+  border-radius: 5px;
+  margin-right: 4px;
+}
+.badge {
+  border-radius: 20px;
+  background-color: black;
+  color: white;
+  font-family: BasicFont, sans-serif;
+  padding: 10px;
+  margin-left: 20px;
+}
+.badges{
+  display: inline-block;
+}
+
+
+
+
+
+
+/* bouton pour installer!!! */
+
+
+.install-btn.color-1{
+  display: inline-block;
+  width: 200px;
+  height: 55px;
+  line-height: 55px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  background-size: 300% 100%;
+  transition: background-position 0.4s ease-in-out, box-shadow 0.3s;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  margin-left: 297px;
+}
+
+.install-btn.color-2{
+  display: inline-block;
+  width: 200px;
+  height: 55px;
+  line-height: 55px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  background-size: 300% 100%;
+  transition: background-position 0.4s ease-in-out, box-shadow 0.3s;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  margin-left: 250px;
+}
+
+
+
+/* état hover */
+.install-btn:hover {
+  background-position: 100% 0;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+  transform: translateY(-2px);
+}
+
+/* variantes de couleur (utilise la classe .color-1 sur le bouton) */
+.install-btn.color-1 {
+  background-image: linear-gradient(to right, #25aae1, #40e495, #30dd8a, #2bb673);
+}
+.install-btn.color-2 {
+  background-image: linear-gradient(to right, #25aae1, #40e495, #30dd8a, #2bb673);
+}
+
+
+/* reste des trucs des fenêtres des projets */
+
+
+
+.title-and-logo {
+  display: flex;
+  align-items: center; 
+  gap: 12px;        
+  padding-top: 10px;
+  padding-left: 10px;
+}
+.project-logo {
+  display: block;
+  width: 80px;
+  height: auto;
+}
+.project-header h2 {
+  margin: 0;
+  line-height: 1;
+}
+.project-description {
+  margin-top: 30px;
+  color: var(--text-color);
+  font-size: 18px;
+  text-align: center;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+.game-screenshot {
+  display: inline-block;
+  width: 200px;
+  height: auto;
+  margin: 20px auto;
+  border-radius: 10px;
+  margin-left: 25px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+
+
+/* bouton en savoir plus */
+.en-savoir-plus {
+  border-radius: 4px;
+  border: none;
+  background-color: transparent;
+  color: #ffffff;
+  background-color: #000000;
+  text-align: center;
+  font-size: 20px;
+  padding: 10px 80px;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  margin: 10px;
+  margin-left: 140px;
+  display: inline-block;
+  position: relative;
   overflow: hidden;
 }
 
-nav.menu-nav ul li.btn a::before {
+.en-savoir-plus:hover {
+  background-color: black;
+}
+
+.en-savoir-plus span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: padding-right 0.3s ease;
+}
+
+.en-savoir-plus span:after {
   content: "";
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-image: url("img/clouds.png");
-  background-size: 100% 100%;
+  top: 50%;
+  transform: translateY(-50%) translateX(100px);
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(.68,-0.55,.27,1.55),
+              opacity 0.3s ease;
+  width: 20px;
+  height: 20px;
+  background-image: url("img/plus.png");
+  background-size: contain;
   background-repeat: no-repeat;
-  background-position: center;
-  transition: filter 0.3s ease;
-  z-index: -1;
 }
 
-nav.menu-nav ul li.btn a:hover::before {
-  filter: brightness(0.7);
+.en-savoir-plus:hover span {
+  padding-right: 45px;
 }
 
-.intro {
-  margin: 60px 0;
-  margin-left: 400px;
-  margin-right: 400px;
-  color: white;
-  text-align: center;
-  font-family: "Font2", sans-serif;
-  line-height: 1.8;
-  font-size: 20px;
-}
-
-.projectswindows {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 60px 80px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.project {
-  width: 100%;
-  max-width: 950px;
-  margin: 0 auto;
-  background-color: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  border-radius: 30px;
-  padding: 40px;
-  margin-bottom: 30px;
-  color: #fff;
-  font-family: "Font2", sans-serif;
-  font-size: 18px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.en-savoir-plus:hover span:after {
+  opacity: 1;
+  transform: translateY(-50%) translateX(10px);
 }
 
 
-.project:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
-}
 
-.project-header {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-}
-
-.project-logo {
-  width: 120px;
-  height: 120px;
-  border-radius: 20px;
-  object-fit: cover;
-  flex-shrink: 0;
-}
-
-.project-info {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.project-info h2 {
-  font-size: 32px;
-  margin: 0 0 10px;
-  color: #fff;
-}
-
-.badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 8px;
-}
-
-.badge {
-  background-color: #222;
-  padding: 6px 12px;
-  border-radius: 12px;
-  font-size: 14px;
-  color: #fff;
-}
-
-.install-btn {
-  background-color: #0aad98;
-  color: white;
+/* bouton code source github */
+.code-source-github {
+  border-radius: 4px;
   border: none;
-  border-radius: 12px;
-  font-size: 16px;
-  padding: 12px 22px;
-  cursor: pointer;
-  font-family: "Font2", sans-serif;
-  margin-left: auto;
-  text-decoration : none;
-  transition: background 0.3s;
-}
-
-.install-btn:hover {
-  background-color: #05678d;
-}
-
-.platform-icon {
-  width: 15px;
-  height: 15px;
-  margin-right: 10px;
-}
-
-.project-description {
-  margin-top: 40px;
-  font-size: 16px;
-  line-height: 1.7;
-  color: #fff;
-  text-align: left;
-}
-
-.footer {
-  background-color: rgba(0, 0, 0, 0.3);
-  color: white;
+  background-color: transparent;
+  color: #ffffff;
+  background-color: #000000;
   text-align: center;
-  padding: 20px;
-  font-family: "Font2", sans-serif;
-  margin-top: 100px;
+  border-radius: 50px;
+  font-size: 20px;
+  padding: 10px 60px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  margin: 10px;
+  margin-left: 60px;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+.code-source-github:hover {
+  background-color: black;
+}
+
+.code-source-github span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: padding-right 0.3s ease;
+}
+
+.code-source-github span:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) translateX(100px);
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(.68,-0.55,.27,1.55),
+              opacity 0.3s ease;
+  width: 20px;
+  height: 20px;
+  background-image: url("img/logo_applications/github.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.code-source-github:hover span {
+  padding-right: 45px;
+}
+
+.code-source-github:hover span:after {
+  opacity: 1;
+  transform: translateY(-50%) translateX(10px);
+}
+
+
+/* bouton lien itchio */
+.lien-itchio {
+  border-radius: 4px;
+  border: none;
+  background-color: transparent;
+  color: #ffffff;
+  background-color: #000000;
+  text-align: center;
+  border-radius: 50px;
+  font-size: 20px;
+  padding: 10px 75px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  margin: 10px;
+  margin-left: 60px;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+.lien-itchio:hover {
+  background-color: black;
+}
+
+.lien-itchio span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: padding-right 0.3s ease;
+}
+
+.lien-itchio span:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) translateX(100px);
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(.68,-0.55,.27,1.55),
+              opacity 0.3s ease;
+  width: 20px;
+  height: 20px;
+  background-image: url("img/logo_applications/itchio.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.lien-itchio:hover span {
+  padding-right: 45px;
+}
+
+.lien-itchio:hover span:after {
+  opacity: 1;
+  transform: translateY(-50%) translateX(10px);
+}
+
+/* footerrrrrr */
+footer {
+  text-align: center;
+   font-family: BasicFont, sans-serif;
+  color: var(--text-color);
+  background-color: var(--projett-color);
+  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 5px;
 }
