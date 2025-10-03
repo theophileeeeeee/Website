@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- ICONES POUR QUE ÇA S'AFFICHE PARTOUT -->
+  <link rel="icon" type="image/png" href="img/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
+  <link rel="shortcut icon" href="img/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png" />
+  <link rel="manifest" href="img/site.webmanifest" />
+
+  <!-- COULEUR DE THÈME (MOBILE + NAVIGATEURS) -->
+  <meta name="theme-color" content="#7c5cff" />
+
+  <!-- TITRE + DESCRIPTION SEO -->
+  <title>Théophile — Portfolio</title>
+  <meta name="description" content="Portfolio de Théophile : développement de jeux, 3D, web. Projets, compétences, contact." />
+
+  <!-- FONTS GOOGLE -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- SCRIPT POUR LE THÈME (DARK/LIGHT) -->
+  <script>
+    const theme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', theme);
+  </script>
+
+  <!-- FEUILLE DE STYLE PRINCIPALE -->
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+  <!-- SKIP LINK (ACCESSIBILITÉ) -->
+  <a href="#main" class="skip">Aller au contenu</a>
+
+  <!-- AURA DÉCORATIVE -->
+  <div class="aura" aria-hidden="true"></div>
+
+  <!-- ======================= HEADER ======================= -->
+  <header>
+    <div class="container nav">
+      <!-- LOGO -->
+      <a class="logo brand" href="#">
+        <div class="logo-badge" aria-hidden="true"></div>
+        Théophile
+      </a>
+
+      <!-- MENU MOBILE (BURGER) -->
+      <button class="hamburger" id="menuToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="siteNav">☰</button>
+
+      <!-- NAVIGATION PRINCIPALE -->
+      <nav id="siteNav" class="site-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="#projets">Projets</a></li>
+          <li><a href="#competences">Compétences</a></li>
+          <li><a href="#a-propos">À propos</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- ACTIONS (THÈME + CONTACT) -->
+     <div class="actions">
+      <button class="toggle" id="themeToggle" aria-label="Changer de thème" aria-pressed="false">
+        <span class="label-action-desktop" aria-hidden="true"></span>
+        <span class="label-action-mobile" aria-hidden="true"></span>
+    </button>
+         <a href="#contact" class="btn btn--grad">
+             <span class="btn-text-original">Me contacter</span>
+             <span class="btn-text-mobile">Contact</span>
+         </a>
+       </div>
+    </div>
+  </header>
+
+  <!-- SCRIM POUR LE MENU MOBILE -->
+  <div class="scrim" id="scrim" hidden></div>
+
+  <!-- ======================= MAIN ======================= -->
+  <main id="main" class="container">
+
+    <!-- ========= HERO ========= -->
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <h1 class="headline brand">
+            Créateur de <span class="accent">jeux 2D et 3D</span> sur <span class="accent">Unity</span>
+          </h1>
+          <p class="lead">Salut! Je crée des jeux vidéos sur Unity et je les code en C#. Sur ce site/portfolio,vous pourrez découvrir ce dont je suis capable!</p>
+          <div class="cta">
+            <a href="#projets" class="btn btn--grad">Voir mes projets</a>
+            <a href="#competences" class="btn">Mes compétences</a>
+          </div>
+          <!-- TAGS STACK -->
+          <div class="tags" aria-label="Stack">
+            <span class="tag">Unity</span>
+            <span class="tag">Blender</span>
+            <span class="tag">C#</span>
+            <span class="tag">Web</span>
+          </div>
+        </div>
+
+        <!-- HERO CARD EXEMPLE -->
+        <div class="hero-card" role="img" aria-label="Aperçu visuel abstrait des projets de Théophile">
+          <div class="tags">
+            <span class="tag">Solo</span>
+            <span class="tag">Pixel art</span>
+            <span class="tag">Aventure</span>
+          </div>
+          <h3 class="brand" style="margin:12px 0 6px;">Wiz' Adventure</h3>
+          <p class="meta">2D • Unity • C#</p>
+          <p> Wiz'Adventure est un jeu d'aventure en 2D où vous incarnez un apprenti sorcier qui doit sauver son maître, kidnappé par un démon maléfique</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========= PROJETS ========= -->
+    <section id="projets">
+      <h2 class="section-title brand">Projets sélectionnés</h2>
+      <p class="section-desc">Mes jeux sur Unity et Unreal Engine et mes projets web</p>
+
+      <!-- FILTRES -->
+      <div class="filters" role="tablist" aria-label="Filtres projets">
+        <button class="filter active" data-filter="all" role="tab" aria-selected="true">Tous</button>
+        <button class="filter" data-filter="unity" role="tab">Unity</button>
+        <button class="filter" data-filter="unreal" role="tab">Unreal Engine</button>
+        <button class="filter" data-filter="web" role="tab">Web</button>
+      </div>
+
+      <!-- GRILLE DES PROJETS -->
+      <div class="grid" id="projectGrid">
+        <!-- PROJET 1 -->
+        <article class="card reveal" data-cat="web">
+          <div class="thumb"><span class="label">Web</span></div>
+          <div class="card-body">
+            <h3>Ce portfolio</h3>
+            <p class="meta">HTML • CSS • Javascript</p>
+            <p>Mon portfolio au un design incroyableee avec des ptites animation interactives et responsive. Réalisé en HTML/CSS /Javascript par moi.</p>
+            <div class="card-tags">
+              <span class="chip">Web</span><span class="chip">PC</span><span class="chip">Mobile</span>
+            </div>
+            <a href="https://github.com/theophileeeeeee/Website" class="btn-link" target="_blank">Voir sur Github</a>
+          </div>
+        </article>
+
+        <!-- PROJET 2 -->
+        <article class="card reveal" data-cat="unity">
+          <div class="thumb"><span class="label">Unity</span></div>
+          <div class="card-body">
+            <h3>Wiz' Adventure</h3>
+            <p class="meta">Unity • C# • 2D</p>
+            <p>Wiz'Adventure est un jeu d'aventure en 2D où vous incarnez un apprenti sorcier qui doit sauver son maître, kidnappé par un démon maléfique</p>
+            <div class="card-tags">
+              <span class="chip">Solo</span><span class="chip">Windows</span><span class="chip">Aventure</span>
+            </div>
+            <a href="wiz'adventure.html" class="btn-link">Plus de détails</a>
+          </div>
+        </article>
+
+        <!-- PROJET MASQUÉ EN COMMENTAIRE -->
+        <!--
+        <article class="card reveal" data-cat="unity">
+          <div class="thumb"><span class="label">Unity</span></div>
+          <div class="card-body">
+            <h3>Survival Island</h3>
+            <p class="meta">Unity • C# • 3D</p>
+            <p>Survivor Island est un jeu de survie en 3D où vous devez collecter des ressources, construire un abri et vous défendre contre des prédateurs etc...</p>
+            <div class="card-tags">
+              <span class="chip">Solo</span><span class="chip">Windows</span><span class="chip">Survie</span>
+            </div>
+            <a href="survival-island.html" class="btn-link">Plus de détails</a>
+          </div>
+        </article>
+        -->
+      </div>
+    </section>
+
+    <!-- ========= COMPÉTENCES ========= -->
+    <section id="competences">
+      <h2 class="section-title brand">Compétences</h2>
+      <p class="section-desc">Bases en jeux, web et 3D</p>
+
+      <!-- GRILLE DE COMPÉTENCES -->
+      <div class="skills">
+        <!-- UNITY -->
+        <div class="skill-card reveal">
+          <div class="skill-top">
+            <span class="skill-title">Unity</span>
+            <div class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></div>
+          </div>
+          <div class="chipline">
+            <span class="chip">C#</span><span class="chip">2D/3D</span><span class="chip">Gameplay</span>
+          </div>
+        </div>
+
+        <!-- BLENDER -->
+        <div class="skill-card reveal">
+          <div class="skill-top">
+            <span class="skill-title">Blender</span>
+            <div class="dots"><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          </div>
+          <div class="chipline">
+            <span class="chip">Modé low-poly</span><span class="chip">UV</span><span class="chip">Texturing</span>
+          </div>
+        </div>
+
+        <!-- WEB -->
+        <div class="skill-card reveal">
+          <div class="skill-top">
+            <span class="skill-title">Web</span>
+            <div class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          </div>
+          <div class="chipline">
+            <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">Javascript</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========= À PROPOS ========= -->
+    <section id="a-propos">
+      <h2 class="section-title brand">À propos</h2>
+      <div class="about-grid">
+        <div class="portrait" aria-label="Portrait de Théophile"></div>
+        <div class="about-card reveal">
+          <p>Je suis <strong>Théophile</strong>, développeur et créateur de jeux en 2D/3D. 
+          Je découvre et j’expérimente chaque jour un peu plus avec Unity, 
+          en passant de petits projets fun à des créations plus ambitieuses.</p>
+          <div class="kpis">
+            <div class="kpi"><strong>1</strong><span>jeu perso</span></div>
+            <div class="kpi"><strong>Unity</strong><span>2D & 3D</span></div>
+            <div class="kpi"><strong>Blender</strong><span>Modélisation</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========= CONTACT ========= -->
+    <section id="contact">
+      <h2 class="section-title brand">Contact</h2>
+      <p class="section-desc">Un projet, une collab, un avis ? Envoie-moi un message.</p>
+
+      <!-- FORMULAIRE DE CONTACT -->
+      <div class="contact-card">
+        <form 
+          id="contactForm"
+          class="contact-form" 
+          action="https://formsubmit.co/63f8c8b4e577d4a696068d3d0c684c6b" 
+          method="POST"
+        >
+          <div class="row">
+            <label>
+              Nom
+              <input type="text" name="name" placeholder="Nom" required />
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" placeholder="Email" required />
+            </label>
+          </div>
+
+          <label>
+            Message
+            <textarea name="message" placeholder="Message..." required></textarea>
+          </label>
+
+          <!-- OPTIONS FORMSUBMIT -->
+          <input type="hidden" name="_subject" value="Nouveau message depuis mon site !">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://theophileeeeeee.github.io/Website/merci.html">
+          <input type="hidden" name="_error" value="https://theophileeeeeee.github.io/Website/erreur.html" />
+
+          <div class="row" style="justify-content:flex-start;">
+            <button type="submit" class="btn btn--grad">Envoyer</button>
+            <button type="reset" class="btn">Effacer</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================= FOOTER ======================= -->
+  <footer class="container">
+    <div class="footer-grid">
+      <p>© <span id="year"></span> Théophileeeeeeeee</p>
+      <!-- RÉSEAUX SOCIAUX -->
+      <div class="socials">
+        <a class="icon-btn" href="https://github.com/theophileeeeeee" aria-label="GitHub"  target="_blank"><img src="img/logo_applications/github.png" width="24"></a>
+        <a class="icon-btn" href="https://theophile-masson.itch.io/" aria-label="Itch.IO" target="_blank"><img src="img/logo_applications/itchio.png" width="24"></a>
+        <a class="icon-btn" href="https://www.instagram.com/theophile_msn/" aria-label="instagram" target="_blank"><img src="img/logo_applications/instagram.png" width="24"></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT PRINCIPAL -->
+  <script src="js/main.js"></script>
+</body>
+</html>
