@@ -5,23 +5,18 @@
   <title>Merci !</title>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    /* ================= Design System (Aurora) ================= */
     :root {
       --radius:16px;
       --radius-sm:10px;
       --radius-lg:24px;
       --shadow-1: 0 10px 30px rgba(14, 25, 76, .07);
       --shadow-2: 0 16px 50px rgba(14, 25, 76, .12);
-
-      /* Couleurs thème sombre par défaut */
-        --bg: #0b0f1a;
+      --bg: #0b0f1a;
       --bg-alt: #111a2e;
       --text: #ffffff;
       --muted: #888;
       --accent: #7c5cff;
       --accent-alt: #37f7fd;
-
-      /* Couleurs thème clair */
       --bg-light: #f5f6fa;
       --bg-alt-light: #ffffff;
       --text-light: #111a2e;
@@ -31,8 +26,8 @@
     }
 
     html[data-theme="dark"] {
-        --bg: #0d111d;
-        --bg-alt: #080c14;
+      --bg: #0d111d;
+      --bg-alt: #080c14;
       --text: #ffffff;
       --muted: #888;
       --accent: #7c5cff;
@@ -48,7 +43,6 @@
       --accent-alt: var(--accent-alt-light);
     }
 
-    /* ================= Style page Merci ================= */
     body {
       margin: 0;
       height: 100vh;
@@ -59,16 +53,22 @@
       background: var(--bg-alt);
       color: var(--text);
       transition: background 0.3s ease, color 0.3s ease;
+      padding: 20px;
     }
 
     .box {
       background: var(--bg);
-      padding: 40px 50px;
-      border-radius: var(--radius);
+      padding: 50px 30px;
+      border-radius: var(--radius-lg);
       box-shadow: var(--shadow-1), var(--shadow-2);
       text-align: center;
-      max-width: 400px;
-      width: 90%;
+      width: 70%;
+      max-width: 600px;
+      max-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: auto;
       transition: transform 0.3s ease, background 0.3s ease;
     }
 
@@ -77,32 +77,59 @@
     }
 
     h1 {
-      margin: 0 0 16px;
+      margin: 0 0 24px;
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 2rem;
+      font-size: 2.5rem;
       color: var(--accent);
     }
 
     p {
-      margin-bottom: 24px;
-      font-size: 1rem;
+      margin-bottom: 30px;
+      font-size: 1.3rem;
       color: var(--text);
     }
 
     .link1 {
       display: inline-block;
-      padding: 10px 24px;
+      padding: 14px 28px;
       font-weight: 600;
       border-radius: var(--radius);
       text-decoration: none;
       background: linear-gradient(90deg, var(--accent), var(--accent-alt));
       color: #fff;
       transition: background 0.3s ease, transform 0.2s ease;
+      font-size: 1.1rem;
     }
 
     .link1:hover {
       background: linear-gradient(90deg, var(--accent-alt), var(--accent));
       transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .box {
+        padding: 60px 20px;
+        width: 98%;
+        height: auto;
+        max-height: none;
+        display: block;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 6rem;
+        line-height: 1.1;
+      }
+
+      p {
+        font-size: 2.5rem;
+        line-height: 1.4;
+      }
+
+      .link1 {
+        font-size: 1.8rem;
+        padding: 24px 48px;
+      }
     }
   </style>
 </head>
@@ -114,13 +141,12 @@
   </div>
 
   <script>
-    // Appliquer le thème persistant
     const root = document.documentElement;
     const savedTheme = localStorage.getItem('theme');
     if(savedTheme) {
       root.setAttribute('data-theme', savedTheme);
     } else {
-      root.setAttribute('data-theme', 'dark'); // noir par défaut
+      root.setAttribute('data-theme', 'dark');
     }
   </script>
 </body>

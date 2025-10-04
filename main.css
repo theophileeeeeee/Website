@@ -42,6 +42,10 @@
 
 *{box-sizing:border-box}
 html:focus-within{scroll-behavior:smooth}
+html, body {
+  overflow-x: hidden; /* bloque tout scroll horizontal */
+}
+
 html,body{margin:0;padding:0}
 body{
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
@@ -172,9 +176,75 @@ header{
 [data-theme="dark"] .toggle .label-action-mobile::after { content: "🌞"; }
 [data-theme="light"] .toggle .label-action-mobile::after { content: "🌙"; }
 
-.hamburger{
-  display:none; border:1px solid var(--line); background: var(--surface); border-radius:12px; padding:10px 12px; cursor:pointer; font-weight:700;
+/* ================= Animation Burger ================= */
+
+/* Caché sur desktop */
+@media (min-width: 901px) {
+  .hamburger { display: none; }
 }
+
+/* Mobile */
+@media (max-width: 900px) {
+  .hamburger {
+    position: relative;
+    width: 36px;
+    height: 28px;
+    display: inline-block;
+    border: none;
+    background: var(--surface);
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 100;
+    padding: 0;
+  }
+
+  /* Lignes (3 barres) */
+  .hamburger::before,
+  .hamburger::after,
+  .hamburger span {
+    content: '';
+    position: absolute;
+    left: 6px;
+    right: 6px;
+    height: 3px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  /* Ligne du milieu */
+  .hamburger span {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /* Ligne du haut */
+  .hamburger::before {
+    top: 6px;
+  }
+
+  /* Ligne du bas */
+  .hamburger::after {
+    bottom: 6px;
+  }
+
+  /* État ouvert (croix animée) */
+  .hamburger.open::before {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  .hamburger.open span {
+    opacity: 0;
+  }
+
+  .hamburger.open::after {
+    bottom: 50%;
+    transform: translateY(50%) rotate(-45deg);
+  }
+}
+
+
 .video-wrapper {
   position: relative;
   width: 100%;
