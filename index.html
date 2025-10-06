@@ -296,8 +296,16 @@
         <a class="icon-btn" href="https://theophile-masson.itch.io/" aria-label="Itch.IO" target="_blank"><img src="img/logo_applications/itchio.png" width="24"></a>
         <a class="icon-btn" href="https://www.instagram.com/theophile_msn/" aria-label="instagram" target="_blank"><img src="img/logo_applications/instagram.png" width="24"></a>
       </div>
+      
     </div>
+    <button class="topArrow">↑</button>
   </footer>
+  <script>
+  document.querySelector(".topArrow").addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+
 
   <!-- SCRIPT PRINCIPAL -->
   <script src="js/main.js"></script>

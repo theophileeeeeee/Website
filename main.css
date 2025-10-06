@@ -585,6 +585,33 @@ footer {
   background: var(--surface);
   transition: 0.3s;
 }
+/* ======================= TOP ARROW ======================= */
+.topArrow {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  background: var(--accent, #6c5ce7); /* couleur principale */
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: background 0.2s ease;
+  z-index: 1000;
+}
+
+/* Effet hover léger */
+.topArrow:hover {
+  background: var(--accent-hover, #5a4ae3);
+}
+
 
 .icon-btn:hover {
   border: 2px solid var(--accent);
