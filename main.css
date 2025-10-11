@@ -83,10 +83,23 @@ header{
   padding: max(10px, env(safe-area-inset-top)) 0;
   min-height: var(--header-h);
 }
-.logo{
-  display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--text);
-  font-weight:700; font-size:1.05rem;
+/* Nom adaptatif */
+.desktop-name {
+  display: inline;
 }
+.mobile-name {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  .desktop-name {
+    display: none;
+  }
+  .mobile-name {
+    display: inline;
+  }
+}
+
 .logo-badge {
   width: 36px;
   height: 36px;
@@ -96,6 +109,27 @@ header{
   background-position: center;
   box-shadow: var(--shadow-1);
 }
+/* === Nom dans le header === */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.logo:hover {
+  color: var(--text);
+}
+
+.logo .name {
+  font-family: "Space Grotesk", Inter, sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 0.2px;
+  margin: 0;
+}
+
 
 /* Desktop nav */
 .site-nav ul{display:flex; gap:18px; list-style:none; margin:0; padding:0;}
@@ -136,7 +170,6 @@ header{
 }
 
 .btn-link:hover {
-  /* supprimer le background et changement de texte pour l’animation hover */
   color: var(--primary);
   border-color: var(--primary);
 }
@@ -150,7 +183,6 @@ header{
   font-weight: bolder;
 }
 
-/* Nouveau : texte du toggle géré en CSS (desktop / mobile + selon data-theme) */
 .toggle .label-action-desktop,
 .toggle .label-action-mobile {
   display: inline-block;
@@ -160,8 +192,6 @@ header{
 
 /* mobile: afficher version courte */
 .toggle .label-action-mobile { display: none; }
-
-/* breakpoint mobile (réutilisé 430px comme pour btn-text) */
 @media (max-width: 500px) {
   .toggle .label-action-desktop { display: none; }
   .toggle .label-action-mobile { display: inline-block; }

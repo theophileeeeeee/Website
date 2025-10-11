@@ -19,6 +19,29 @@
   <title>Théophile Masson — Portfolio</title>
   <meta name="description" content="Portfolio de Théophile Masson : développement de jeux, 3D, web. Projets, compétences, contact." />
 
+  <!-- OPEN GRAPH (SEO + réseaux sociaux) -->
+  <meta property="og:title" content="Théophile Masson — Portfolio">
+  <meta property="og:description" content="Portfolio de Théophile Masson : développement de jeux, 3D, web.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://theophileeeeeee.github.io/Website/">
+  <meta property="og:image" content="https://theophileeeeeee.github.io/Website/img/preview.png">
+
+  <!-- DONNÉES STRUCTURÉES SCHEMA.ORG -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Théophile Masson",
+    "url": "https://theophileeeeeee.github.io/Website/",
+    "sameAs": [
+      "https://github.com/theophileeeeeee",
+      "https://theophile-masson.itch.io/",
+      "https://www.instagram.com/theophile_msn/"
+    ],
+    "jobTitle": "Développeur de jeux vidéo"
+  }
+  </script>
+
   <!-- FONTS GOOGLE -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -46,15 +69,16 @@
       <!-- LOGO -->
       <a class="logo brand" href="#">
         <div class="logo-badge" aria-hidden="true"></div>
-        Théophile
+        <h2 class="name">
+        <span class="desktop-name">Théophile Masson</span>
+        <span class="mobile-name">Théophile</span>
+      </h2>
       </a>
 
       <!-- MENU MOBILE (BURGER) -->
-<button id="menuToggle" class="hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
-  <span></span>
-</button>
-
-
+      <button id="menuToggle" class="hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span>
+      </button>
 
       <!-- NAVIGATION PRINCIPALE -->
       <nav id="siteNav" class="site-nav" aria-label="Navigation principale">
@@ -67,16 +91,16 @@
       </nav>
 
       <!-- ACTIONS (THÈME + CONTACT) -->
-     <div class="actions">
-      <button class="toggle" id="themeToggle" aria-label="Changer de thème" aria-pressed="false">
-        <span class="label-action-desktop" aria-hidden="true"></span>
-        <span class="label-action-mobile" aria-hidden="true"></span>
-    </button>
-         <a href="#contact" class="btn btn--grad">
-             <span class="btn-text-original">Me contacter</span>
-             <span class="btn-text-mobile">Contact</span>
-         </a>
-       </div>
+      <div class="actions">
+        <button class="toggle" id="themeToggle" aria-label="Changer de thème" aria-pressed="false">
+          <span class="label-action-desktop" aria-hidden="true"></span>
+          <span class="label-action-mobile" aria-hidden="true"></span>
+        </button>
+        <a href="#contact" class="btn btn--grad">
+          <span class="btn-text-original">Me contacter</span>
+          <span class="btn-text-mobile">Contact</span>
+        </a>
+      </div>
     </div>
   </header>
 
@@ -114,13 +138,12 @@
             <span class="tag">Pixel art</span>
             <span class="tag">Aventure</span>
           </div>
-          <p class="brand" style="margin:12px 0 6px;">Wiz' Adventure</p>
+          <h3 class="brand" style="margin:12px 0 6px;">Wiz' Adventure</h3>
           <p class="meta">2D • Unity • C#</p>
           <p> Wiz'Adventure est un jeu d'aventure en 2D où vous incarnez un apprenti sorcier qui doit sauver son maître, kidnappé par un démon maléfique</p>
         </div>
       </div>
     </section>
-
     <!-- ========= PROJETS ========= -->
     <section id="projets">
       <h2 class="section-title brand">Projets sélectionnés</h2>
@@ -142,7 +165,7 @@
           <div class="card-body">
             <h3>Ce portfolio</h3>
             <p class="meta">HTML • CSS • Javascript</p>
-            <p>Mon portfolio au un design incroyableee avec des ptites animation interactives et responsive. Réalisé en HTML/CSS /Javascript par moi.</p>
+            <p>Mon portfolio au un design incroyableee avec des petites animations interactives et responsive. Réalisé en HTML/CSS /Javascript par moi.</p>
             <div class="card-tags">
               <span class="chip">Web</span><span class="chip">PC</span><span class="chip">Mobile</span>
             </div>
@@ -156,15 +179,14 @@
           <div class="card-body">
             <h3>Wiz' Adventure</h3>
             <p class="meta">Unity • C# • 2D</p>
-            <p>Wiz'Adventure est un jeu d'aventure en 2D où vous incarnez un apprenti sorcier qui doit sauver son maître, kidnappé par un démon maléfique</p>
+            <p>Wiz'Adventure est un jeu d'aventure en 2D où vous incarnez un apprenti sorcier qui doit sauver son maître, kidnappé par un démon maléfique.</p>
             <div class="card-tags">
               <span class="chip">Solo</span><span class="chip">Windows</span><span class="chip">Aventure</span>
             </div>
             <a href="wiz-adventure.html" class="btn-link">Plus de détails</a>
           </div>
         </article>
-
-        <!-- PROJET MASQUÉ EN COMMENTAIRE -->
+                <!-- PROJET MASQUÉ EN COMMENTAIRE -->
         <!--
         <article class="card reveal" data-cat="unity">
           <div class="thumb"><span class="label">Unity</span></div>
@@ -228,9 +250,9 @@
     <section id="a-propos">
       <h2 class="section-title brand">À propos</h2>
       <div class="about-grid">
-        <div class="portrait" aria-label="Portrait de Théophile"></div>
+        <div class="portrait" aria-label="Portrait de Théophile Masson"></div>
         <div class="about-card reveal">
-          <p>Je suis <strong>Théophile</strong>, développeur et créateur de jeux en 2D/3D. 
+          <p>Je suis <strong>Théophile Masson</strong>, développeur et créateur de jeux en 2D/3D. 
           Je découvre et j’expérimente chaque jour un peu plus avec Unity, 
           en passant de petits projets fun à des créations plus ambitieuses.</p>
           <div class="kpis">
@@ -289,23 +311,22 @@
   <!-- ======================= FOOTER ======================= -->
   <footer class="container">
     <div class="footer-grid">
-      <p>© <span id="year"></span> Théophileeeeeeeee</p>
+      <p>© <span id="year"></span> Théophileeeeee</p>
       <!-- RÉSEAUX SOCIAUX -->
       <div class="socials">
         <a class="icon-btn" href="https://github.com/theophileeeeeee" aria-label="GitHub"  target="_blank"><img src="img/logo_applications/github.png" width="24"></a>
         <a class="icon-btn" href="https://theophile-masson.itch.io/" aria-label="Itch.IO" target="_blank"><img src="img/logo_applications/itchio.png" width="24"></a>
         <a class="icon-btn" href="https://www.instagram.com/theophile_msn/" aria-label="instagram" target="_blank"><img src="img/logo_applications/instagram.png" width="24"></a>
       </div>
-      
     </div>
     <button class="topArrow">↑</button>
   </footer>
+  
   <script>
-  document.querySelector(".topArrow").addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-</script>
-
+    document.querySelector(".topArrow").addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
 
   <!-- SCRIPT PRINCIPAL -->
   <script src="js/main.js"></script>
