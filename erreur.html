@@ -2,53 +2,30 @@
 <html lang="fr" data-theme="dark">
 <head>
   <meta charset="UTF-8">
-  <title>Erreur !</title>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Erreur — Message non envoyé</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    /* ================= Design System (Aurora) ================= */
     :root {
-      --radius:16px;
-      --radius-sm:10px;
-      --radius-lg:24px;
-      --shadow-1: 0 10px 30px rgba(14, 25, 76, .07);
-      --shadow-2: 0 16px 50px rgba(14, 25, 76, .12);
-
-      /* Couleurs thème sombre par défaut */
-      --bg: #0b0f1a;
-      --bg-alt: #080c14;
-      --text: #ffffff;
-      --muted: #888;
-      --accent: #ff5c5c;
-      --accent-alt: #ff9f37;
-
-      /* Couleurs thème clair */
-      --bg-light: #f5f6fa;
-      --bg-alt-light: #ffffff;
-      --text-light: #111a2e;
-      --muted-light: #666;
-      --accent-light: #ff5c5c;
-      --accent-alt-light: #ff9f37;
+      --bg: #ffffff;
+      --surface: #ffffff;
+      --text: #000000;
+      --muted: #666666;
+      --line: #000000;
+      --accent: #ff3300;
+      --shadow: 8px 8px 0px var(--line);
     }
 
     html[data-theme="dark"] {
-        --bg: #0d111d;
-        --bg-alt: #080c14;
+      --bg: #000000;
+      --surface: #000000;
       --text: #ffffff;
-      --muted: #888;
-      --accent: #ff5c5c;
-      --accent-alt: #ff9f37;
+      --muted: #999999;
+      --line: #ffffff;
+      --accent: #ccff00;
+      --shadow: 8px 8px 0px var(--line);
     }
 
-    html[data-theme="light"] {
-      --bg: var(--bg-light);
-      --bg-alt: var(--bg-alt-light);
-      --text: var(--text-light);
-      --muted: var(--muted-light);
-      --accent: var(--accent-light);
-      --accent-alt: var(--accent-alt-light);
-    }
-
-    /* ================= Style page Erreur ================= */
     body {
       margin: 0;
       height: 100vh;
@@ -56,72 +33,74 @@
       justify-content: center;
       align-items: center;
       font-family: 'Inter', sans-serif;
-      background: var(--bg-alt);
+      background: var(--bg);
       color: var(--text);
       transition: background 0.3s ease, color 0.3s ease;
     }
 
     .box {
-      background: var(--bg);
-      padding: 40px 50px;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-1), var(--shadow-2);
+      background: var(--surface);
+      padding: 60px 40px;
+      border: 2px solid var(--line);
+      box-shadow: var(--shadow);
       text-align: center;
-      max-width: 400px;
+      max-width: 450px;
       width: 90%;
-      transition: transform 0.3s ease, background 0.3s ease;
-    }
-
-    .box:hover {
-      transform: translateY(-5px);
     }
 
     h1 {
       margin: 0 0 16px;
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 2rem;
+      font-size: 2.5rem;
+      text-transform: uppercase;
       color: var(--accent);
     }
 
     p {
-      margin-bottom: 24px;
-      font-size: 1rem;
-      color: var(--text);
+      margin-bottom: 40px;
+      font-size: 1.1rem;
+      color: var(--muted);
+      line-height: 1.6;
     }
 
-    .link1 {
+    .btn-back {
       display: inline-block;
-      padding: 10px 24px;
-      font-weight: 600;
-      border-radius: var(--radius);
+      padding: 16px 32px;
+      font-weight: 700;
+      font-family: 'Space Grotesk', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: 2px solid var(--line);
+      background: var(--accent);
+      color: var(--bg);
       text-decoration: none;
-      background: linear-gradient(90deg, var(--accent), var(--accent-alt));
-      color: #fff;
-      transition: background 0.3s ease, transform 0.2s ease;
+      box-shadow: 4px 4px 0px var(--line);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .link1:hover {
-      background: linear-gradient(90deg, var(--accent-alt), var(--accent));
-      transform: translateY(-2px);
+    .btn-back:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0px var(--line);
+    }
+
+    .btn-back:active {
+      transform: translate(2px, 2px);
+      box-shadow: 0px 0px 0px var(--line);
     }
   </style>
 </head>
 <body>
+
   <div class="box">
-    <h1>❌ Erreur !</h1>
-    <p>Oups... ton message n'a pas pu être envoyé.<br>Réessaye plus tard!</p>
-    <a class="link1" href="index.html#contact">⬅ Retour au site</a>
+    <h1>ERREUR ❌</h1>
+    <p>Le message n'a pas pu être transmis au serveur.<br>Veuillez réessayer ultérieurement.</p>
+    <a class="btn-back" href="index.html#contact">RETOUR AU SITE</a>
   </div>
 
   <script>
-    // Appliquer le thème persistant
     const root = document.documentElement;
-    const savedTheme = localStorage.getItem('theme');
-    if(savedTheme) {
-      root.setAttribute('data-theme', savedTheme);
-    } else {
-      root.setAttribute('data-theme', 'dark'); // noir par défaut
-    }
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    root.setAttribute('data-theme', savedTheme);
   </script>
 </body>
 </html>
