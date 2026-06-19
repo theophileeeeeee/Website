@@ -21,6 +21,17 @@ const savedTheme = localStorage.getItem('theme') || 'dark';
 
 root.setAttribute('data-theme', savedTheme);
 
+function updateThemeIcon(currentTheme) {
+  const themeIcon = document.getElementById('theme-icon');
+  if (!themeIcon) return;
+  
+  if (currentTheme === 'light') {
+    themeIcon.src = './img/soleil.png';
+  } else {
+    themeIcon.src = './img/lune.png';
+  }
+}
+
 function updateSocialIcons() {
   const icons = document.querySelectorAll('.socials img');
   const isDark = root.getAttribute('data-theme') === 'dark';
@@ -43,16 +54,19 @@ function updateSocialIcons() {
   });
 }
 
+updateThemeIcon(savedTheme);
+updateSocialIcons();
+
 if (toggle) {
   toggle.addEventListener('click', () => {
     const current = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     root.setAttribute('data-theme', current);
     localStorage.setItem('theme', current);
+    
+    updateThemeIcon(current);
     updateSocialIcons();
   });
 }
-
-updateSocialIcons();
 
 const menuToggle = document.getElementById('menuToggle');
 const siteNav = document.getElementById('siteNav');

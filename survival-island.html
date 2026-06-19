@@ -42,26 +42,27 @@
       </div>
     </section>
 
-<section id="play-game">
-  <h2 class="section-title brand">JOUER EN LIGNE</h2>
-  <p class="section-desc">Testez le prototype directement depuis le navigateur.</p>
-  
-  <div style="text-align: center; margin-bottom: 20px;">
-    <a href="https://itch.io/embed-upload/17981659?color=000000" target="_blank" class="btn" style="font-size: 0.9rem; padding: 10px 20px;">
-      Ouvrir le jeu dans un nouvel onglet ↗
-    </a>
-  </div>
+    <section id="play-game">
+      <h2 class="section-title brand">JOUER EN LIGNE</h2>
+      <p class="section-desc">Testez le prototype directement depuis le navigateur.</p>
 
-  <div class="video-wrapper reveal">
-<iframe 
-  src="./games/survival island webGL/index.html" 
-  width="100%" 
-  height="600px" 
-  style="border: none;"
-  allowfullscreen>
-</iframe>
- </div>
-</section>
+      <div style="text-align: center; margin-bottom: 20px;">
+        <button id="fullscreen-btn" class="btn btn--grad" style="font-size: 0.9rem; padding: 10px 20px; cursor: pointer;">
+          PASSER EN PLEIN ÉCRAN ⛶
+        </button>
+      </div>
+
+      <div class="video-wrapper reveal">
+        <iframe 
+          id="unity-iframe"
+          src="./games/survival island webGL/index.html" 
+          width="100%" 
+          height="600px" 
+          style="border: none;"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
 
     <section id="screenshots">
       <h2 class="section-title brand">SCREENSHOTS</h2>
@@ -123,7 +124,7 @@
 
   <footer class="container">
     <div class="footer-grid">
-      <p class="brand">© <span id="year"></span> THÉOPHILE MASSON</p>
+      <p class="brand">© <span id="year"></span> Théophile 🎈</p>
       <div class="socials">
         <a class="icon-btn" href="https://github.com/theophileeeeeee" target="_blank"><img src="img/logo_applications/github.png" width="24" alt="GitHub"></a>
         <a class="icon-btn" href="https://theophile-masson.itch.io/" target="_blank"><img src="img/logo_applications/itchio.png" width="24" alt="Itch.io"></a>
@@ -136,6 +137,20 @@
   <script>
     document.querySelector(".topArrow").addEventListener("click", () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Script pour activer le mode plein écran de l'iframe
+    const iframe = document.getElementById('unity-iframe');
+    const fullscreenBtn = document.getElementById('fullscreen-btn');
+
+    fullscreenBtn.addEventListener('click', () => {
+      if (iframe.requestFullscreen) {
+        iframe.requestFullscreen();
+      } else if (iframe.webkitRequestFullscreen) { /* Safari */
+        iframe.webkitRequestFullscreen();
+      } else if (iframe.msRequestFullscreen) { /* IE11 */
+        iframe.msRequestFullscreen();
+      }
     });
   </script>
   <script src="js/main.js"></script>

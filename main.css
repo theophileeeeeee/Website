@@ -722,3 +722,14 @@ footer {
     display: inline;
   }
 }
+@media (max-width: 768px) {
+  .btn-contact-main {
+    font-size: 0.8rem !important;
+    padding: 6px 12px !important;
+  }
+
+  #theme-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
