@@ -43,7 +43,7 @@
   <a href="#main" class="skip">Aller au contenu</a>
   <div class="aura" aria-hidden="true"></div>
 
-<header>
+  <header>
     <div class="container nav">
       <a class="logo brand" href="#">
         <div class="logo-badge" aria-hidden="true"></div>
@@ -68,7 +68,7 @@
 
       <div class="actions">
         <button class="toggle" id="themeToggle" aria-label="Changer de thème" aria-pressed="false" style="background: none; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 5px;">
-          <img id="theme-icon" src="../img/lune.png" alt="Icône thème" width="20" height="20">
+          <img id="theme-icon" src="./img/lune.png" alt="Icône thème" width="20" height="20">
         </button>
         
         <a href="#contact" class="btn btn--grad btn-contact-main">
@@ -256,12 +256,6 @@
     </div>
     <button class="topArrow">↑</button>
   </footer>
-
-  <script>
-    document.querySelector(".topArrow").addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-  </script>
   <script src="js/main.js"></script>
 </body>
 </html>

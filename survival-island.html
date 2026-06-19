@@ -135,23 +135,19 @@
   </footer>
 
   <script>
-    document.querySelector(".topArrow").addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-
-    // Script pour activer le mode plein écran de l'iframe
     const iframe = document.getElementById('unity-iframe');
     const fullscreenBtn = document.getElementById('fullscreen-btn');
-
-    fullscreenBtn.addEventListener('click', () => {
-      if (iframe.requestFullscreen) {
-        iframe.requestFullscreen();
-      } else if (iframe.webkitRequestFullscreen) { /* Safari */
-        iframe.webkitRequestFullscreen();
-      } else if (iframe.msRequestFullscreen) { /* IE11 */
-        iframe.msRequestFullscreen();
-      }
-    });
+    if (fullscreenBtn && iframe) {
+      fullscreenBtn.addEventListener('click', () => {
+        if (iframe.requestFullscreen) {
+          iframe.requestFullscreen();
+        } else if (iframe.webkitRequestFullscreen) {
+          iframe.webkitRequestFullscreen();
+        } else if (iframe.msRequestFullscreen) {
+          iframe.msRequestFullscreen();
+        }
+      });
+    }
   </script>
   <script src="js/main.js"></script>
 </body>

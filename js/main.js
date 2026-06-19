@@ -21,6 +21,7 @@ const savedTheme = localStorage.getItem('theme') || 'dark';
 
 root.setAttribute('data-theme', savedTheme);
 
+// Fonction pour mettre à jour l'icône Lune/Soleil avec le bon dossier img/
 function updateThemeIcon(currentTheme) {
   const themeIcon = document.getElementById('theme-icon');
   if (!themeIcon) return;
@@ -54,6 +55,7 @@ function updateSocialIcons() {
   });
 }
 
+// Initialisation des icônes au chargement
 updateThemeIcon(savedTheme);
 updateSocialIcons();
 
@@ -96,9 +98,40 @@ if (menuToggle) {
 
 if (scrim) scrim.addEventListener('click', closeMenu);
 
-if (siteNav) {
-  siteNav.addEventListener('click', (e) => {
-    if (e.target.tagName === 'A') closeMenu();
+// Défilement fluide global pour TOUS les liens d'ancres (Menu, boutons Hero, etc.)
+document.addEventListener('click', (e) => {
+  const anchorLink = e.target.closest('a');
+  
+  if (anchorLink) {
+    const targetId = anchorLink.getAttribute('href');
+    
+    if (targetId && targetId.startsWith('#') && targetId !== '#') {
+      e.preventDefault();
+      
+      const targetSection = document.querySelector(targetId);
+      
+      if (typeof closeMenu === 'function') {
+        closeMenu();
+      }
+      
+      if (targetSection) {
+        targetSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+  }
+});
+
+// AJOUT ICI : Gestion du clic fluide pour la flèche de remontée (.topArrow)
+const topArrow = document.querySelector('.topArrow');
+if (topArrow) {
+  topArrow.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   });
 }
 
