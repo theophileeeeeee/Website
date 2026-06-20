@@ -21,7 +21,6 @@ const savedTheme = localStorage.getItem('theme') || 'dark';
 
 root.setAttribute('data-theme', savedTheme);
 
-// Fonction pour mettre à jour l'icône Lune/Soleil avec le bon dossier img/
 function updateThemeIcon(currentTheme) {
   const themeIcon = document.getElementById('theme-icon');
   if (!themeIcon) return;
@@ -34,28 +33,33 @@ function updateThemeIcon(currentTheme) {
 }
 
 function updateSocialIcons() {
-  const icons = document.querySelectorAll('.socials img');
   const isDark = root.getAttribute('data-theme') === 'dark';
 
-  icons.forEach(img => {
+  const socialIcons = document.querySelectorAll('.socials img');
+  socialIcons.forEach(img => {
     let src = img.getAttribute('src');
     if (!src) return;
-
     if (!isDark) {
-      if (!src.includes('-light')) {
-        src = src.replace(/(\.\w+)$/, '-light$1');
-        img.setAttribute('src', src);
-      }
+      if (!src.includes('-light')) src = src.replace(/(\.\w+)$/, '-light$1');
     } else {
-      if (src.includes('-light')) {
-        src = src.replace('-light', '');
-        img.setAttribute('src', src);
-      }
+      if (src.includes('-light')) src = src.replace('-light', '');
     }
+    img.setAttribute('src', src);
+  });
+
+  const gameIcons = document.querySelectorAll('.dynamic-icon');
+  gameIcons.forEach(img => {
+    let src = img.getAttribute('src');
+    if (!src) return;
+    if (!isDark) {
+      if (!src.includes('-dark')) src = src.replace(/(\.\w+)$/, '-dark$1');
+    } else {
+      if (src.includes('-dark')) src = src.replace('-dark', '');
+    }
+    img.setAttribute('src', src);
   });
 }
 
-// Initialisation des icônes au chargement
 updateThemeIcon(savedTheme);
 updateSocialIcons();
 
@@ -98,7 +102,6 @@ if (menuToggle) {
 
 if (scrim) scrim.addEventListener('click', closeMenu);
 
-// Défilement fluide global pour TOUS les liens d'ancres (Menu, boutons Hero, etc.)
 document.addEventListener('click', (e) => {
   const anchorLink = e.target.closest('a');
   
@@ -124,7 +127,6 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// AJOUT ICI : Gestion du clic fluide pour la flèche de remontée (.topArrow)
 const topArrow = document.querySelector('.topArrow');
 if (topArrow) {
   topArrow.addEventListener('click', () => {
