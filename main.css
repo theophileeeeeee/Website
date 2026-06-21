@@ -362,7 +362,7 @@ header {
 }
 
 .headline {
-  font-size: clamp(36px, 6vw, 64px);
+  font-size: clamp(32px, 5.5vw, 55px);
   line-height: 1.1;
   margin: 0 0 24px;
 }

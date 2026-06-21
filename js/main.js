@@ -149,6 +149,22 @@ const filters = document.querySelectorAll('.filter');
 const grid = document.getElementById('projectGrid');
 
 if (filters && grid) {
+  let noProjectMsg = document.getElementById('no-project-message');
+  if (!noProjectMsg) {
+    noProjectMsg = document.createElement('p');
+    noProjectMsg.id = 'no-project-message';
+    noProjectMsg.style.textAlign = 'center';
+    noProjectMsg.style.width = '100%';
+    noProjectMsg.style.padding = '40px 0';
+    noProjectMsg.style.fontSize = '1.2rem';
+    noProjectMsg.style.fontWeight = '700';
+    noProjectMsg.style.textTransform = 'uppercase';
+    noProjectMsg.style.fontFamily = '"Space Grotesk", sans-serif';
+    noProjectMsg.style.color = 'var(--muted)';
+    noProjectMsg.style.display = 'none';
+    grid.parentNode.insertBefore(noProjectMsg, grid);
+  }
+
   filters.forEach(f => {
     f.addEventListener('click', () => {
       filters.forEach(x => {
@@ -159,10 +175,21 @@ if (filters && grid) {
       f.setAttribute('aria-selected', 'true');
 
       const cat = f.dataset.filter;
+      let visibleCount = 0;
+
       grid.querySelectorAll('.card').forEach(card => {
         const show = (cat === 'all') || (card.dataset.cat === cat);
         card.style.display = show ? '' : 'none';
+        if (show) visibleCount++;
       });
+
+      if (cat !== 'all' && visibleCount === 0) {
+        const categoryName = f.textContent.trim();
+        noProjectMsg.textContent = `Aucun projet dans la catégorie "${categoryName}" pour le moment !`;
+        noProjectMsg.style.display = 'block';
+      } else {
+        noProjectMsg.style.display = 'none';
+      }
     });
   });
 }
